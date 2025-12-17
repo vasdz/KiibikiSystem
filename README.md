@@ -47,8 +47,6 @@
 git clone https://github.com/vasdz/KiibikiSystem.git
 cd KiibikiSystem
 
-text
-
 #### 2. Конфигурация Backend
 
 В корне проекта создайте файл `.env` на основе примера `.env.example`.
@@ -58,8 +56,6 @@ copy .env.example .env
 
 Для Linux/macOS
 cp .env.example .env
-
-text
 
 Файл `.env` должен выглядеть так:
 .env
@@ -79,15 +75,12 @@ SECRET_KEY=СЮДА_ВСТАВЬ_СВОЙ_ОЧЕНЬ_СЕКРЕТНЫЙ_КЛЮЧ
 ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES=1440 # 1 день
 
-text
-
 #### 3. Сборка и запуск контейнеров
 
 Выполните команду в корне проекта:
 
 docker compose up --build -d
 
-text
 Эта команда соберет образы для бэкенда и фронтенда, запустит контейнеры и создаст базу данных.
 
 #### 4. Применение миграций базы данных
@@ -96,7 +89,6 @@ text
 
 docker compose exec backend alembic upgrade head
 
-text
 *(Если вы создавали таблицы вручную, используйте `alembic stamp head`, чтобы синхронизировать историю миграций)*.
 
 ---
