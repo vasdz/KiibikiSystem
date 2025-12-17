@@ -1,0 +1,18 @@
+services:
+  db:
+    # БЫЛО: image: postgres:15-alpine
+    # СТАЛО (зеркало):
+    image: dockerhub.timeweb.cloud/library/postgres:15-alpine
+    container_name: kiibiki_db
+    restart: always
+    environment:
+      POSTGRES_USER: kiibiki_admin
+      POSTGRES_PASSWORD: secure_pass
+      POSTGRES_DB: kiibiki_core
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
